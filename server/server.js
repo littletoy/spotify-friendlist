@@ -2,6 +2,11 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const path = require('path');
+const mongoose = require('mongoose');
+
+const songController = require('./mongoosedb/songController')
+
+mongoose.connect('mongodb://local/scratch')
 
 //use spotifywebapi call
 const SpotifyWebApi = require('spotify-web-api-node');
