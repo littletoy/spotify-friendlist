@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const mongoose = require('mongoose');
 
-const songController = require('./mongoosedb/songController')
+const songController = require('./mongoosedb/songController');
 
 mongoose.connect('mongodb://local/scratch')
 
@@ -13,7 +13,6 @@ const axios = require('axios');
 
 //might need to do app.use(express.static(path.join(__dirname, someplace where index is)))
 app.use(bodyParser.json());
-
 
 app.get('/', (request, response) => {
 
