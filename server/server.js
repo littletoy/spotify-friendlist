@@ -4,23 +4,25 @@ const bodyParser = require('body-parser');
 const path = require('path');
 
 
-//might need to do app.use(express.static)
+//might need to do app.use(express.static(path.join(__dirname, someplace where index is)))
 app.use(bodyParser.json());
 
 
 app.get('/', (request, response) => {
-    response.send('server is operational')
+    //get json for us to use
+    response.send('server is operational');
 })
 
 app.get('/friends', (request, response) => {
-    response.send('this is for your friends...')
+    //should receive information from the database
+    response.send('this is for your friends...');
 })
 
-app.post('/suffled', (request, response) => {
+app.post('/playlist', (request, response) => {
     let friend = request.body.friend;
     let playlist = request.body.playlist;
 
-    response.end('should send request to post req.body')
+    response.end('should send request to post req.body');
 })
 
 app.listen(8888, ()=> {
