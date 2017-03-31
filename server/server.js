@@ -8,27 +8,24 @@ const songController = require('./mongoosedb/songController')
 
 mongoose.connect('mongodb://local/scratch')
 
-//use spotifywebapi call
-const SpotifyWebApi = require('spotify-web-api-node');
+//get request dependency
+const axios = require('axios');
 
 //might need to do app.use(express.static(path.join(__dirname, someplace where index is)))
 app.use(bodyParser.json());
 
 
 app.get('/', (request, response) => {
-    //get json for us to use
-    response.send('server is operational');
+
 })
 
 app.get('/recent', (request, response) => {
-    let spotifyApi = new SpotifyWebApi({
-        clientID: 'badc2d41af2d4f6dba8abe33ef73260b',
-        clientSecret: 'ad3d1486a35445319bd622c60ec690f1',
-    });
+    let authHeader = {
+        headers: { Authorization: 'Bearer ' + 'BQDu8J8BfcyB3I1zBX9xf0J-ompWfEyk-SAG8F1JXnuakWB7cpicLPE-WlNT4weyoztR54sKqUycMjD8KdkS7udoQ-WlBCKD6jg6dKvgwAPEpRhSDMm26aq7E7H78ZsQvqYPJstnE3Gw8gwDtC0OErHIfeJ4FYjAP94os05EHOyLumLUHpO8D2rP0AzS3UlX_S6A' }
+    };
 
-    spotifyApi.setAccessToken('BQCLDyo0yiZeV3RGP0enoz_tR0Ay1xaJ760LDA1iF-dm6IzfuYE_UbNPDw37-ZR4aBMi2BbcW9AP0rLPH6wm1DXIHPBF2jY25WG3AVfrUJgOgsgjKHSGoTTEKWyyLU7-1PLwB_v3ddEGMe0VPzfT8myRArQM0T-fXxU7uj78EtOax_G3O1PwzHJ85OtGja3_rLB9');
-
-    response.send(data);
+    axios.get('https://api.spotify.com/v1/me/player/recently-played', authHeader)
+        .then(data => response.json(data.data.items) /* should do response.json once i figure out refresh */)
 })
 
 app.post('/playlist', (request, response) => {
@@ -38,6 +35,6 @@ app.post('/playlist', (request, response) => {
     response.end('should send request to post req.body');
 })
 
-app.listen(8888, ()=> {
+app.listen(8888, () => {
     console.log('Listening to port 8888')
 })
