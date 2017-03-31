@@ -18,3 +18,10 @@ Compile
 ```
 npm run compile
 ```
+
+Start
+---
+
+```
+npm start
+```
