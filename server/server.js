@@ -31,6 +31,7 @@ app.get('/recent', (request, response) => {
 })
 
 app.post('/playlist', (request, response) => {
+    //should be posting to DB
     let friend = request.body.friend;
     let playlist = request.body.playlist;
 
