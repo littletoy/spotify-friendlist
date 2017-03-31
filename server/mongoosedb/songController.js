@@ -17,15 +17,7 @@ songController.createSong = (req, res) => {
 
   song.save(err => {
     if (err) {
-      res.render('need url to send for err', { error: 'This is an error' });
-    } else {
-
-    //   Song.findOne({ name: req.body.name }, (err, result) => {
-    //     let localsid = result._id;
-    //     sessionController.startSession(localsid);
-    //     res.cookie('ssid', result._id);
-    //     res.redirect('/secret');
-    //   });
-    }
+      res.render({ error: 'This is an error. You are a dumbass' });
+    } 
   });
 };
