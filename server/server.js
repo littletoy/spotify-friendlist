@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 
 
-//might need to do app.use(express.static)
+//might need to do app.use(express.static(path.join(__dirname, someplace where index is)))
 app.use(bodyParser.json());
 
 
