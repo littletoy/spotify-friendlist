@@ -8,7 +8,6 @@ const songController = require('./mongoosedb/songController')
 
 mongoose.connect('mongodb://local/scratch')
 
-//get request dependency
 const axios = require('axios');
 
 //might need to do app.use(express.static(path.join(__dirname, someplace where index is)))
@@ -16,7 +15,7 @@ app.use(bodyParser.json());
 
 
 app.get('/', (request, response) => {
-
+    response.send('server is operational!')
 })
 
 app.get('/recent', (request, response) => {
@@ -25,7 +24,10 @@ app.get('/recent', (request, response) => {
     };
 
     axios.get('https://api.spotify.com/v1/me/player/recently-played', authHeader)
-        .then(data => response.json(data.data.items) /* should do response.json once i figure out refresh */)
+        .then(data => {
+            console.log(data.data.items)
+            response.json(data.data.items)
+        } /* should do response.json once i figure out refresh */)
 })
 
 app.post('/playlist', (request, response) => {
