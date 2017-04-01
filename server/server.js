@@ -17,16 +17,11 @@ app.get('/', (request, response) => {
 
 app.get('/recent', (request, response) => {
     let authHeader = {
-        headers: { Authorization: 'Bearer ' + 'BQBGSkkowjBC76XVEKhGuBeAvJZBHHLPtd5gwZ1o5ZKjBd7CAEXDkcnKMA_qh7SUZRtwwhg1wiYRZBZhc2Gqkf63l5mmJw5FTvb73_xqscRuNf8Kdm1pnGtacUZAK9HZhoyDEZM1w_v2OUZePrcmefrGJWNLXvKiwBc4ZoYktd3yBwY--V0-F9IIGHxidv8oACvU' }
+        headers: { Authorization: 'Bearer ' + 'BQAmunAJqGJygsdb18TSxVMe5YbxAnVU7cdJVqSn7X0zBKbF1R-hYc_ObJZL8SRhWlZqPTejZ4ffUZGXJxziJmqoqu-wHSA_dDMxVEbv68nBaRw7HEwYBjXE5SbFlFEk_XqTQwLegcJf36apTGUS4bjyrNwTR84AX3M8V3dH6_tOXyW-F6pGhfMI6g38Qz51SMq7' }
     };
 
     axios.get('https://api.spotify.com/v1/me/player/recently-played', authHeader)
         .then(data => {
-            // console.log("artist: ", data.data.items[7].track.artists[0].name)
-            // console.log("songName: ", data.data.items[7].track.name)
-            // console.log("duration: ", data.data.items[7].track.duration_ms)
-            // console.log("uri: ", data.data.items[7].track.uri)
-            //data.data.item is an array of object 
             let playlist = []
             for (let i = 0; i < data.data.items.length; i += 1) {
                 playlist.push({
