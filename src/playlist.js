@@ -11,15 +11,16 @@ class Playlist extends Component {
     }
   }
 
-  add() {
+componentDidMount() {
     axios.get(this.props.playlistUrl)
       .then(res => {
-       console.log(res)
-        this.setState({ playlist: playlist });
+        this.setState({ playlist: res.data });
+        //console.log(this.state.playlist)
       });
-  }
+}
 
   render() {
+
     return (
       <div>
         <div>
@@ -27,7 +28,7 @@ class Playlist extends Component {
         </div>
         <div className="playlist">
           <div className="song">
-            <Song song={this.state.playlist/*should be this.state.song.data*/} />
+           <Song song={this.state.playlist/*should be this.state.song.data*/} />
           </div>
         </div>
       </div>
