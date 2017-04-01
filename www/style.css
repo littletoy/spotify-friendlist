@@ -1,12 +1,31 @@
 #header {
-    height: 30px;
-    width: 110%;
-    background-color: orange;
+    height: 70px;
+    width: 100%;
+    text-align: center;
+    padding-top: 20px;
+    background-color: black;
+    color: white;
+    font-family: helvetica;
+    font-weight: lighter;
 }
 
-.playlist {
-    height: 600px;
-    width: 400px;
-    background-color: blue;
-    margin-top: 100px;
+.container {
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.artist {
+    font-family: helvetica;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.song {
+    font-family: helvetica;
+    font-size: 12px;
+}
+
+.playBtn {
+    height: 80px;
+    width: 300px;
 }

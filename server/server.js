@@ -13,13 +13,9 @@ app.use(express.static(path.join(__dirname, './../www')))
 
 app.use(bodyParser.json());
 
-// app.get('/', (request, response) => {
-//     response.send('server is operational!')
-// })
-
 app.get('/recent', (request, response) => {
     let authHeader = {
-        headers: { Authorization: 'Bearer ' + 'BQCh4nBzLDy1vt6IP8mC5VkOxTh_v6881ziTecFBzxn7wxfR-wMBer8rUQLE7pYXF4aATdefTYzDdidj0EQSUZpAscH006IZTAZV5dgiUP3LiOapDuvYjRQUgeZU2RGljJc6oeqOPvSNYnAUdwNip0C6YSiekFr0KwnMX73PXT9obT1kqrpRNiR7--Q1ObmKHdc9' }
+        headers: { Authorization: 'Bearer ' + 'BQD4EwFWUZqZMTESv1dEn3XU2g0U-5qZHdlo1daRVF3TGdDX2UQmtIGRFpsIUz13dCHikz0kxxxbgxkuTBkX5unv18jTwwZwP8z5Z725G4PBY28pMtDbRrD9YmpHVkVzDkGH0ZYuqyHTU2yz1y8Me95AocEj3w5usNKGfJFgoAbRNn2mibstMvmwZ9iMQ9b9r2SJ' }
     };
 
     axios.get('https://api.spotify.com/v1/me/player/recently-played', authHeader)
