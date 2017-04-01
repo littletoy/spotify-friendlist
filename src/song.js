@@ -6,7 +6,7 @@ class Song extends Component {
        
     return (
         <div>
-           <button type="button"> Play </button> 
+            <iframe src="" frameborder="0" allowtransparency="true"></iframe>
         </div>
     )
     }
