@@ -3,11 +3,12 @@ import React, { Component } from 'react';
 class Song extends Component {
 
     render() {
-        return (
+       
+    return (
         <div>
-           <button type="button"></button>
+           <button type="button"> Play </button> 
         </div>
-        )
+    )
     }
 }
 

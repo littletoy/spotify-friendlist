@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 
 app.get('/recent', (request, response) => {
     let authHeader = {
-        headers: { Authorization: 'Bearer ' + 'BQDTqeLEbZR0tFzNjgCRwIx-EUGnxo3Yte5Qx6-j1uJGUNArJO3L2q7RZBrus_uB3zgkeB_kSS2ebv9LXieL1sEc8zbhi0vGKqHWuuis5D-lY-K3YGViGj4JO8P12Sbx-UXG_2fFgQL-9MrxkWDk5eKMLnM5jAdl7xgEWPX4gp3oTDtXUIksh3_WeDki-MKylb-v' }
+        headers: { Authorization: 'Bearer ' + 'BQCh4nBzLDy1vt6IP8mC5VkOxTh_v6881ziTecFBzxn7wxfR-wMBer8rUQLE7pYXF4aATdefTYzDdidj0EQSUZpAscH006IZTAZV5dgiUP3LiOapDuvYjRQUgeZU2RGljJc6oeqOPvSNYnAUdwNip0C6YSiekFr0KwnMX73PXT9obT1kqrpRNiR7--Q1ObmKHdc9' }
     };
 
     axios.get('https://api.spotify.com/v1/me/player/recently-played', authHeader)
@@ -34,7 +34,7 @@ app.get('/recent', (request, response) => {
                 })
             }
             response.json(playlist)
-        } /* should do response.json once i figure out refresh */)
+        })
 })
 
 app.listen(8888, () => {

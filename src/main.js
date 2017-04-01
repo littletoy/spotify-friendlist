@@ -5,22 +5,29 @@ import Playlist from './playlist.js';
 import axios from 'axios';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      playlist: [],
+      playing: false
+    }
+  }
 
 componentDidMount() {
     axios.get('http://localhost:8888/recent')
       .then(res => {
+        //res.data is the array of object we want
         this.setState({ playlist: res.data });
-        //console.log(this.state.playlist)
+        //console.log('i am from axios get requeset: ', this.state.playlist)
       });
 }
 
 render() {
-
-  const url = 'http://localhost:8888/recent';
-
+  //console.log("i am from main.js render area: ", this.state.playlist[0])
     return (
       <div>
-        <Playlist playlistUrl = {url}/>
+        <h1 id="header">Recently played playlist</h1>
+        <Playlist playlist={this.state.playlist} />
       </div>
     );
   }

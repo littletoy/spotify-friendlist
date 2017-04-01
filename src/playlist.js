@@ -1,36 +1,19 @@
 import React, { Component } from 'react';
 import Song from './song.js';
-import axios from 'axios';
 
 class Playlist extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      playlist: [],
-      playing: false
-    }
-  }
-
-componentDidMount() {
-    axios.get(this.props.playlistUrl)
-      .then(res => {
-        this.setState({ playlist: res.data });
-        //console.log(this.state.playlist)
-      });
-}
 
   render() {
+    console.log('this is from the playlist.js',this.props.playlist[0])
+
+    // let artists = function mapArtist(arr) {return arr.map((element, index) => <Song value={element.artist} />)}
+
+    let artists = this.props.playlist.map((element, index) => <div key={index}> {element.artist} <Song key={index} /> </div>)
+    //this.props.playlist.length > 0 ? artists(this.props.playlist) : "" 
 
     return (
       <div>
-        <div>
-          <h1 id="header">Recently played playlist</h1>
-        </div>
-        <div className="playlist">
-          <div className="song">
-           <Song song={this.state.playlist/*should be this.state.song.data*/} />
-          </div>
-        </div>
+        {artists}
       </div>
     )
   }
