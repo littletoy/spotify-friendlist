@@ -1,6 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, { Component } from 'react';
 import Song from './song.js';
+import axios from 'axios';
 
 class Playlist extends Component {
   constructor(props) {
@@ -12,9 +12,9 @@ class Playlist extends Component {
   }
 
   add() {
-    axios.post(this.props.playlistUrl)
+    axios.get(this.props.playlistUrl)
       .then(res => {
-        let playlist = res.data.children.map(playlist => playlist.data);
+       console.log(res)
         this.setState({ playlist: playlist });
       });
   }
@@ -27,7 +27,7 @@ class Playlist extends Component {
         </div>
         <div className="playlist">
           <div className="song">
-            <Song song={this.state.song.data} />
+            <Song song={this.state.playlist/*should be this.state.song.data*/} />
           </div>
         </div>
       </div>
