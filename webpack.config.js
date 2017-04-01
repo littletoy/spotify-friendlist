@@ -10,19 +10,14 @@ module.exports = {
     filename: 'bundle.js',
   },
   module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: [
-          'babel-loader',
-        ],
-      },
-    ],
-  },
-  resolve: {
-    modules: [
-      path.join(__dirname, 'node_modules'),
-    ],
-  },
-};
+    loaders:
+      [
+            {
+                test: /\.js?$/,
+                loader: 'babel-loader',
+                exclude: /node_modules/,
+                query: { presets: ["es2015", "react"] }
+            }
+        ]
+  }
+}

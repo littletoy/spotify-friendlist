@@ -9,11 +9,13 @@ const mongoose = require('mongoose');
 const axios = require('axios');
 
 //might need to do app.use(express.static(path.join(__dirname, someplace where index is)))
+app.use(express.static(path.join(__dirname, './../www')))
+
 app.use(bodyParser.json());
 
-app.get('/', (request, response) => {
-    response.send('server is operational!')
-})
+// app.get('/', (request, response) => {
+//     response.send('server is operational!')
+// })
 
 app.get('/recent', (request, response) => {
     let authHeader = {
