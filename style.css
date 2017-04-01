@@ -1,0 +1,12 @@
+#header {
+    height: 30px;
+    width: 110%;
+    background-color: orange;
+}
+
+.playlist {
+    height: 600px;
+    width: 400px;
+    background-color: blue;
+    margin-top: 100px;
+}
